@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button"
-import { FaBeer } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 import MainDisplay from "@/components/MainDisplay";

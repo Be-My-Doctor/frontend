@@ -1,52 +1,91 @@
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Button } from "@/components/ui/button"
+import {
+    AlertDialog,
+    AlertDialogAction,
+    AlertDialogCancel,
+    AlertDialogContent,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
+import { Phone, MapPin, Ambulance, LineChart, CirclePlus, BadgeCheck } from "lucide-react";
+
 export default function Profile() {
     return (
-        // Container div for the entire about page content
-        <div className="flex flex-col w-full items-center justify-center bg-sky-50">
-            {/* Section for main text content */}
-            <section className="text-center my-8">
-                {/* Heading for the main text content */}
-                <h1 className="text-4xl font-bold mb-4">About Us</h1>
-                {/* Paragraph for the main text content */}
-                <p className="text-lg">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ultricies magna in magna varius, ac posuere est volutpat.</p>
-            </section>
+        <div className="flex flex-col items-center justify-start bg-gray-100 min-h-screen py-8">
 
-            {/* Section for mission statement */}
-            <section className="bg-white py-12 px-6 my-8">
-                {/* Heading for the mission section */}
-                <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
-                {/* Paragraph for the mission statement */}
-                <p className="text-lg text-gray-600">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus auctor tincidunt ligula, eget condimentum sapien mattis eu.</p>
-            </section>
-
-            {/* Section for team members */}
-            <section className="bg-white py-12 px-6 my-8">
-                {/* Heading for the team section */}
-                <h2 className="text-2xl font-bold mb-4">Our Team</h2>
-                {/* Grid layout for team members */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    {/* Individual team member cards */}
-                    <div className="bg-gray-100 rounded-lg shadow-md p-6">
-                        <h3 className="text-lg font-semibold mb-2">John Doe</h3>
-                        <p className="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                    {/* Team member 2 */}
-                    <div className="bg-gray-100 rounded-lg shadow-md p-6">
-                        <h3 className="text-lg font-semibold mb-2">Jane Smith</h3>
-                        <p className="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </div>
-                    {/* Team member 3 */}
-                    <div className="bg-gray-100 rounded-lg shadow-md p-6">
-                        <h3 className="text-lg font-semibold mb-2">Michael Johnson</h3>
-                        <p className="text-gray-600 mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            {/* Profile information */}
+            <div className="bg-white w-[90vw] flex flex-col max-w-md p-6 rounded-lg shadow-md mb-4">
+                <div className="flex">
+                    <Avatar className="w-16 h-16 rounded-full border-4 border-sky-500">
+                        <AvatarImage src="" />
+                        <AvatarFallback>CN</AvatarFallback>
+                    </Avatar>
+                    <div className="flex flex-col ml-2">
+                        <div className="flex items-center">
+                            <h1 className="text-3xl font-bold">John Doe</h1>
+                            <BadgeCheck className="text-green-500 ml-2 mt-2" size={24} />
+                        </div>
+                        <p className="text-gray-600">Age: 30</p>
                     </div>
                 </div>
-            </section>
+            </div>
 
-            {/* Footer */}
-            <footer className="text-center bg-sky-900 text-white p-4 mt-auto w-full">
-                {/* Footer text */}
-                <p>&copy; 2024 Your Company. All rights reserved.</p>
-            </footer>
+            <div className="flex justify-between">
+                <p className="text-gray-600 mb-2">Location: New York, USA</p>
+                <MapPin className="text-gray-600 mb-2" size={20} />
+            </div>
+
+            {/* Contact */}
+            <div className="bg-white w-[90vw] max-w-md p-6 rounded-lg shadow-md mb-4">
+                <h2 className="text-2xl font-bold mb-4">Close Contacts</h2>
+                <div className="flex justify-between">
+                    <p className="text-gray-600 mb-2">Person 1: +55 11 98462-2756</p>
+                    <Phone className="text-gray-600 mb-2" size={20} />
+                </div>
+                <div className="flex justify-between">
+                    <p className="text-gray-600 mb-2">Person 2: +1 123-456-7890</p>
+                    <Phone className="text-gray-600 mb-2" size={20} />
+                </div>
+            </div>
+
+            {/* better to make it a component later */}
+
+            <div className="flex flex-col w-[90vw] justify-between">
+                <div className=" flex my-3 justify-between">
+                    <Button className="bg-sky-500 text-2xl">
+                        <LineChart size={24} className="mr-1" /> Generate Report
+                    </Button>
+                    <Button>
+                        <CirclePlus size={20} className="mr-1" />More
+                    </Button>
+                </div>
+                <div>
+                    <AlertDialog>
+                        <AlertDialogTrigger className="flex w-full font-bold text-4xl bg-red-500 px-4 py-2 rounded-lg justify-center cursor-pointer">
+                            <Ambulance size={40} className="mr-1" /> EMERGENCY
+                        </AlertDialogTrigger>
+                        <AlertDialogContent>
+                            <AlertDialogHeader>
+                                <AlertDialogTitle>Call Emergency</AlertDialogTitle>
+                                <AlertDialogDescription>
+                                    We will send a message to your closest contacts and call an ambulance for you.
+                                </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                                <AlertDialogAction>Continue</AlertDialogAction>
+                            </AlertDialogFooter>
+                        </AlertDialogContent>
+                    </AlertDialog>
+
+                </div>
+            </div>
         </div>
     );
 }
+

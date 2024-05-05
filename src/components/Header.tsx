@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom';
 import { Home, CircleUserRound } from 'lucide-react';
-import logo from '../assets/react.svg';
 
 export default function Header() {
     const navigate = useNavigate();

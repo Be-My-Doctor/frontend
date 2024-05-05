@@ -1,5 +1,3 @@
-import { Button } from "@/components/ui/button"
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import MainDisplay from "@/components/MainDisplay";

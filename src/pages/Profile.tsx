@@ -14,7 +14,7 @@ import {
 
 import { Phone, MapPin, Ambulance, LineChart, CirclePlus, BadgeCheck } from "lucide-react";
 
-export default function Profile() {
+export default function Profile({user} : any) {
     return (
         <div className="flex flex-col items-center justify-start bg-gray-100 min-h-screen py-8">
 
@@ -22,21 +22,21 @@ export default function Profile() {
             <div className="bg-white w-[90vw] flex flex-col max-w-md p-6 rounded-lg shadow-md mb-4">
                 <div className="flex">
                     <Avatar className="w-16 h-16 rounded-full border-4 border-sky-500">
-                        <AvatarImage src="" />
-                        <AvatarFallback>CN</AvatarFallback>
+                        <AvatarImage src={user ? user.userImg : ""} />
+                        <AvatarFallback>{user.userName}</AvatarFallback>
                     </Avatar>
                     <div className="flex flex-col ml-2">
                         <div className="flex items-center">
-                            <h1 className="text-3xl font-bold">John Doe</h1>
+                            <h1 className="text-3xl font-bold">{user.userName}</h1>
                             <BadgeCheck className="text-green-500 ml-2 mt-2" size={24} />
                         </div>
-                        <p className="text-gray-600">Age: 30</p>
+                        <p className="text-gray-600">Age: {user.age}</p>
                     </div>
                 </div>
             </div>
 
             <div className="flex justify-between">
-                <p className="text-gray-600 mb-2">Location: New York, USA</p>
+                <p className="text-gray-600 mb-2">Location: {user.coordinates}</p>
                 <MapPin className="text-gray-600 mb-2" size={20} />
             </div>
 
@@ -44,11 +44,11 @@ export default function Profile() {
             <div className="bg-white w-[90vw] max-w-md p-6 rounded-lg shadow-md mb-4">
                 <h2 className="text-2xl font-bold mb-4">Close Contacts</h2>
                 <div className="flex justify-between">
-                    <p className="text-gray-600 mb-2">Person 1: +55 11 98462-2756</p>
+                    <p className="text-gray-600 mb-2">Person 1: {user.closeContacts[0]}</p>
                     <Phone className="text-gray-600 mb-2" size={20} />
                 </div>
                 <div className="flex justify-between">
-                    <p className="text-gray-600 mb-2">Person 2: +1 123-456-7890</p>
+                    <p className="text-gray-600 mb-2">Person 2: {user.closeContacts[1]}</p>
                     <Phone className="text-gray-600 mb-2" size={20} />
                 </div>
             </div>
@@ -82,7 +82,6 @@ export default function Profile() {
                             </AlertDialogFooter>
                         </AlertDialogContent>
                     </AlertDialog>
-
                 </div>
             </div>
         </div>

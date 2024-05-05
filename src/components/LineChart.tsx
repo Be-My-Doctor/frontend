@@ -1,25 +1,23 @@
 import React, { PureComponent } from 'react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 
-const data = [
-    { name: '00', heartrate: 2400 },
-    { name: '', heartrate: 1398 },
-    { name: '02', heartrate: 8800 },
-    { name: '', heartrate: 3908 },
-    { name: '04', heartrate: 4800 },
-    { name: '', heartrate: 3800 },
-    { name: '06', heartrate: 4300 },
-    { name: '', heartrate: 2400 },
-    { name: '08', heartrate: 1398 },
-    { name: '', heartrate: 6800 },
-    { name: '10', heartrate: 3908 },
-    { name: '', heartrate: 4800 },
-];
+interface DataType {
+    time: string;
+    heartrate: number;
+    index: number;
+}
 
+interface Props {
+    user: {
+        data: DataType[];
+    };
+}
 
-export default class Example extends PureComponent {
+export default class Example extends PureComponent<Props> {
 
     render() {
+        const { user } = this.props;
+        const data = user.data || []; // Extracting data from props
         return (
             <ResponsiveContainer width="100%" height="100%">
                 <LineChart
@@ -34,7 +32,7 @@ export default class Example extends PureComponent {
                     }}
                 >
                     <CartesianGrid strokeDasharray="3 3" />
-                    <XAxis dataKey="name" />
+                    <XAxis dataKey="time" />
                     <YAxis />
                     <Tooltip />
                     <Legend />

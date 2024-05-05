@@ -6,7 +6,7 @@ export default function Header() {
     const navigate = useNavigate();
 
     return (
-        <header className="bg-sky-500 text-sky-100 py-2 px-6 shadow-lg fixed w-full bottom-0 z-20 backdrop-blur-lg">
+        <header className="bg-sky-500 text-sky-100 px-6 shadow-lg fixed w-full bottom-0 z-20 backdrop-blur-lg">
             <div className="flex justify-between items-center">
                 {/* Navigation links */}
                 <nav className='w-full'>

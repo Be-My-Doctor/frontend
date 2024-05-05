@@ -7,11 +7,15 @@ import Header from '../components/Header';
 export default function Layout() {
     return (
         // Container div for the entire layout
-        <div className='w-[100vw] h-[100vh] md:h-[100vh] md:flex md:flex-col lg:h-[100vh] lg:flex lg:flex-col overflow-y-auto overflow-x-hidden relative'>
-            {/* Rendering the Header component */}
-            <Header />
-            {/* Rendering the child components of the current route */}
-            <Outlet />
-        </div>
+        <>
+            <div className='w-full h-screen md:flex md:flex-col lg:hidden overflow-y-auto overflow-x-hidden relative'>
+                {/* Rendering the Header component */}
+                <Header />
+                {/* Rendering the child components of the current route */}
+                <Outlet />
+            </div>
+            {/* Conditionally rendering text for smartphone */}
+            <p className="hidden lg:block absolute top-[50%] right-[50%] p-4 text-white bg-red-500">Try it on your phone</p>
+        </>
     )
 }

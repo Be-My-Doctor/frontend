@@ -25,12 +25,12 @@ const MainDisplay = ({ user }: any) => {
         }
     }, [user]);
 
-    useEffect(() => {
-        if (bpmStatus === 3) {
-            //implement better alert later
-            alert("PERIGO! Seu batimento cardíaco está muito alto. Estamos acionando uma ambulância para o seu local e entrando em contato com os mais próximos");
-        }
-    }, [bpmStatus]);
+    // useEffect(() => {
+    //     if (bpmStatus === 3) {
+    //         //implement better alert later
+    //         alert("PERIGO! Seu batimento cardíaco está muito alto. Estamos acionando uma ambulância para o seu local e entrando em contato com os mais próximos");
+    //     }
+    // }, [bpmStatus]);
 
     // Determine the glow color based on bpmStatus
     let glowColor = "";
